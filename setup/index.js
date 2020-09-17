@@ -2,7 +2,8 @@ console.log("Set up script init.");
 
 const yaml = require('js-yaml');
 const fs   = require('fs');
-const { argv } = require('process');
+const path   = require('path');
+
  
 var rootPath=path.normalize(__dirname__+'/../..');;
 var configFileName = rootPath+".perses.yml";
