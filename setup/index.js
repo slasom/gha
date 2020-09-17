@@ -3,22 +3,21 @@ console.log("Set up script init.");
 const yaml = require('js-yaml');
 const fs   = require('fs');
 const path   = require('path');
-const { config } = require('process');
 
- 
 var rootPath=path.normalize(__dirname+'/../..');;
 var configFileName = rootPath+"/.perses.yml";
+var config = "";
 
-console.log("Loading Perses Config ("+configFileName+")...");
+console.log("Loading Perses Config ("+configFileName+").");
 try {
-  const config = yaml.safeLoad(fs.readFileSync(configFileName, 'utf8'));
+    config = yaml.safeLoad(fs.readFileSync(configFileName, 'utf8'));
 
 } catch (e) {
   console.error(e);
   process.exit(1);
 }
 
-config.apk_path = "Mipath!"
+config.apk_path = rootPath+"/app/build/outputs/apk/app-debug.apk" 
 
 configYAML = yaml.safeDump(config);
 
@@ -30,5 +29,6 @@ try {
     console.error(err);
   }
 
+console.log("MY_SECRET = <"+process.env.MY_SECRET+">");  
 
 process.exit(0);
