@@ -6,9 +6,9 @@ const path   = require('path');
 
  
 var rootPath=path.normalize(__dirname+'/../..');;
-var configFileName = rootPath+".perses.yml";
+var configFileName = rootPath+"/.perses.yml";
 
-console.log("Loading Perses Config (${configFileName})...");
+console.log("Loading Perses Config ("+configFileName+")...");
 try {
   const doc = yaml.safeLoad(fs.readFileSync(configFileName, 'utf8'));
   console.log(doc);
