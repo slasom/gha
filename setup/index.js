@@ -46,7 +46,7 @@ if( process.env.AWS_SECRET_KEY == undefined ){
     pemFileName = rootPath+'/.perses-key.pem';
 
     try {
-        fs.writeFileSync(pemFileName, process.env.KEY_PEM);
+        fs.writeFileSync(pemFileName, process.env.KEY_PEM, { mode: 0o600 });
       } catch(err) {
         console.error(err);
     }
