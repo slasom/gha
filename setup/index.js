@@ -35,14 +35,30 @@ if( process.env.AWS_SECRET_KEY == undefined ){
 } else if( process.env.AWS_ACCESS_KEY == undefined ){
     console.error("AWS_ACCESS_KEY not available in environment");
     process.exit(1);  
+} else if( process.env.KEY_NAME == undefined ){
+    console.error("KEY_NAME not available in environment");
+    process.exit(1);  
+} else if( process.env.KEY_PEM == undefined ){
+    console.error("KEY_PEM not available in environment");
+    process.exit(1);  
 }else{
+    
+    pemFileName = rootPath+'/.perses-key.pem';
+
+    try {
+        fs.writeFileSync(pemFileName, process.env.KEY_PEM);
+      } catch(err) {
+        console.error(err);
+    }
+
 
     var credentials ={
         access_key: process.env.AWS_ACCESS_KEY,
         secret_key: process.env.AWS_SECRET_KEY,
-        key_path: "test",
-        key_name: "test"
+        key_name: process.env.KEY_NAME,
+        key_path: pemFileName
     } 
+
     var credentialsYAML = yaml.safeDump(credentials);
     
     try {
