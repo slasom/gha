@@ -5,7 +5,7 @@ const fs   = require('fs');
 const path   = require('path');
 
  
-var rootPath=path.normalize(__dirname__+'/../..');;
+var rootPath=path.normalize(__dirname+'/../..');;
 var configFileName = rootPath+".perses.yml";
 
 console.log("Loading Perses Config (${configFileName})...");
