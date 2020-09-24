@@ -17,7 +17,7 @@ try {
   process.exit(1);
 }
 
-config.apk_path = rootPath+"/app/build/outputs/apk/app-debug.apk" 
+config.apk_path = rootPath+"/app/build/outputs/apk/debug/app-debug.apk" 
 
 configYAML = yaml.safeDump(config);
 
