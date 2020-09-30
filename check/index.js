@@ -33,4 +33,6 @@ try {
 if (result.mean > config.max_avg){
   console.error("TEST FAILED: result > max --> "+result.mean+ ">"+config.max_avg);
   process.exit(1);
+}else{
+  console.log("TEST PASSED: result > max --> "+result.mean+ " > "+config.max_avg);
 }
